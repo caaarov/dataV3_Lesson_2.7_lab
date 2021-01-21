@@ -2,7 +2,11 @@
 
 # Lab | SQL Queries - Lesson 2.7 Part 1
 
-In this activity we are going to do some database maintenance. In the current database we only have information on movies for the year 2006. Now we have received the film catalog for 2020 as well. For this new data we will create another table and bulk insert all the data there. Code to create a new table has been provided below.
+In this activity we are going to do some database maintenance. 
+In the current database we only have information on movies for the year 2006. 
+Now we have received the film catalog for 2020 as well. 
+For this new data we will create another table and bulk insert all the data there. 
+Code to create a new table has been provided below.
 
 ```sql
 drop table if exists films_2020;
@@ -25,7 +29,10 @@ CREATE TABLE `films_2020` (
 
 <br>
 
-We have just one item for each film, and all will be placed in the new table. For 2020, the rental duration will be 3 days, with an offer price of `2.99€` and a replacement cost of `8.99€` (these are all fixed values for all movies for this year). The catalog is in a CSV file named **films_2020.csv** that can be found at `files_for_lab` folder.
+We have just one item for each film, and all will be placed in the new table. 
+For 2020, the rental duration will be 3 days, with an offer price of `2.99€` 
+and a replacement cost of `8.99€` (these are all fixed values for all movies for this year). 
+The catalog is in a CSV file named **films_2020.csv** that can be found at `files_for_lab` folder.
 
 ### Instructions
 
