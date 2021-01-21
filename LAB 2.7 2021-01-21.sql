@@ -45,3 +45,42 @@ UPDATE sakila.films_2020 SET rental_rate = 2.99;
 UPDATE sakila.films_2020 SET replacement_cost = 8.99;
 
 select*from sakila.films_2020;
+
+# Lab | SQL Queries - Lesson 2.7 Part 2
+# 1. In the table actor, which are the actors whose last names are not repeated?
+select* from sakila.actor;
+select last_name, count(last_name) from sakila.actor
+group by last_name
+Having count(last_name)=1;
+
+#2. Which last names appear more than once? 
+select last_name, count(last_name) as sum_last_name from sakila.actor
+group by last_name
+Having count(last_name)>1
+Order by sum_last_name;
+
+#3. Using the rental table, find out how many rentals were processed by each employee.
+Select* from sakila.rental;
+Select staff_id, count(staff_id) as rentals_staff from sakila.rental
+group by staff_id;
+
+#4. Using the film table, find out how many films were released each year.
+Select release_year, count(film_id) as num_films from sakila.film
+group by release_year
+Order by release_year asc;
+
+#5. Using the film table, find out for each rating how many films were there.
+Select rating, count(film_id) as num_films from sakila.film
+group by rating
+order by rating desc;
+
+#6. What is the mean length of the film for each rating type. Round off the average lengths to two decimal places
+Select rating, count(film_id) as num_films, round(avg(length),2) as avg_length from sakila.film
+group by rating
+order by rating desc;
+
+#7. Which kind of movies (rating) have a mean duration of more than two hours?
+Select rating, count(film_id) as num_films, round(avg(length),2) as avg_length from sakila.film
+group by rating
+having avg_length>120
+order by rating desc; #PG-13
